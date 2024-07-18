@@ -10,6 +10,14 @@ Base.@kwdef struct ParamGalewskiSphere
   Omega = 2*pi/24.0/3600.0 
 end
 
+Base.@kwdef struct ParamHaurwitzSphere
+  ω = 7.848e-6 # Hz
+  K = 7.848e-6 # Hz
+  h0 = 8000 # m
+  R = 4
+  Ω = 2*pi/24.0/3600.0
+end
+
 Base.@kwdef struct ParamLinearBlob
   lat0 = 4.0*atan(1.0)
   lon0 = 2.0*atan(1.0)
@@ -340,6 +348,9 @@ function Parameters(FT,Problem::String)
   elseif Problem == "GalewskiSphere"
     @show Problem
     Param = ParamGalewskiSphere()
+  elseif Problem == "HaurwitzSphere"
+    @show Problem
+    Param = ParamHaurwitzSphere()
   elseif Problem == "LinearBlob"
     @show Problem
     Param = ParamLinearBlob()
